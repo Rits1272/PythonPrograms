@@ -1,2 +1,2 @@
 # PythonPrograms
-Some advanced python programs.
+Repo for my personal Python practice
