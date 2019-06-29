@@ -11,5 +11,5 @@ print('Author : {}'.format(video.author))
 
 print('Length : {}'.format(video.duration))
 
-audiostreams = video.audiostreams
-audiostreams[3].download()
+audiostreams = video.getbestaudio()
+audiostreams.download()
