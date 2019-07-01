@@ -7,6 +7,7 @@ pygame.init()
 WIDTH = 800
 HEIGHT = 600
 pause_score = 0
+added_speed = 0
 
 surface = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Bit Racy")
@@ -157,6 +158,7 @@ def gameIntro():
 def gameloop():
     #music
     global crash_sound
+    global added_speed
     crash_sound = pygame.mixer.Sound('Crash.wav')
     pygame.mixer.music.load('bgsound.wav')
     pygame.mixer.music.play(-1) # play indefinitely
@@ -188,9 +190,9 @@ def gameloop():
 
             if event.type == pygame.KEYDOWN: # that is a key is pressed.
                 if event.key == pygame.K_LEFT:
-                    x_change = -5
+                    x_change = -5-added_speed
                 if event.key == pygame.K_RIGHT:
-                    x_change = 5
+                    x_change = 5+added_speed
                 if event.key == pygame.K_p:
                     pause = True
                     pause_score = count
@@ -220,6 +222,7 @@ def gameloop():
             # Increasing the difficulty of the game
             thing_width += count * 1.2
             thing_speed += 1
+            added_speed += 0.5
             
 
         if y < thing_starty + thing_height:
